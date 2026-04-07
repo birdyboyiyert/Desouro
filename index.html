@@ -1,319 +1,731 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rohan.</title>
-  <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,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">
-  <link rel="apple-touch-icon" href="data:image/png;base64,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">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Class 302 Tea Cafe — Build Your Own Boba, Irvine</title>
+<meta name="description" content="Self-serve boba bar in Irvine, CA. Pick your cup, load your toppings, fill it with tea, get it sealed. Plus Taiwanese eats.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FAF6F0;
+  --cream-deep:#F1EADE;
+  --ink:#1B1410;
+  --ink-soft:#3a2e26;
+  --taro:#7C5BAA;
+  --taro-deep:#3D2F5C;
+  --taro-pale:#E9DEF5;
+  --milk:#FFFBF4;
+  --rule:rgba(27,20,16,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--cream);color:var(--ink);font-family:"Manrope",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-size:16px;line-height:1.5}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+/* type system */
+.serif{font-family:"Fraunces",Georgia,serif;font-optical-sizing:auto;font-variation-settings:"SOFT" 30,"WONK" 1}
+.label{font-family:"Manrope",sans-serif;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
+.tiny{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
 
-    body {
-      background: #fff;
-      color: #111;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 300;
-      -webkit-font-smoothing: antialiased;
-      opacity: 0;
-      animation: bodyFade 0.5s ease 0.1s forwards;
-    }
+/* grain overlay */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.35;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.6' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.42  0 0 0 0 0.36  0 0 0 0 0.28  0 0 0 0.45 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
 
-    @keyframes bodyFade {
-      to { opacity: 1; }
-    }
+/* container */
+.wrap{max-width:1380px;margin:0 auto;padding:0 32px}
+@media(max-width:640px){.wrap{padding:0 20px}}
 
-    a { color: inherit; text-decoration: underline; }
-    a:hover { opacity: 0.6; }
+/* ============ NAV ============ */
+nav.top{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 32px;
+  background:rgba(250,246,240,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--rule);
+}
+nav.top .mark{display:flex;align-items:center;gap:10px}
+nav.top .mark .badge{
+  width:34px;height:34px;border-radius:50%;
+  background:var(--taro);color:var(--milk);
+  display:grid;place-items:center;
+  font-family:"Fraunces",serif;font-weight:700;font-size:15px;
+  font-style:italic;
+  transform:rotate(-6deg);
+  box-shadow:0 2px 0 var(--taro-deep);
+}
+nav.top .mark .name{font-family:"Fraunces",serif;font-weight:500;font-size:18px;letter-spacing:-.01em}
+nav.top .links{display:flex;gap:28px}
+nav.top .links a{font-size:13px;font-weight:500;position:relative}
+nav.top .links a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+nav.top .links a:hover::after{transform:scaleX(1)}
+nav.top .cta{
+  padding:10px 18px;border-radius:999px;background:var(--ink);color:var(--cream);
+  font-size:12px;font-weight:600;letter-spacing:.04em;
+  transition:transform .25s ease, background .25s ease;
+}
+nav.top .cta:hover{background:var(--taro);transform:translateY(-1px)}
+@media(max-width:760px){
+  nav.top{padding:14px 20px}
+  nav.top .links{display:none}
+}
 
-    /* ── NAV ── */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 28px 32px;
-      opacity: 0;
-      animation: slideDown 0.5s ease 0.2s forwards;
-    }
-    @keyframes slideDown {
-      from { opacity: 0; transform: translateY(-10px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+/* ============ HERO ============ */
+.hero{
+  position:relative;
+  padding:160px 0 100px;
+  overflow:hidden;
+}
+.hero .grid{
+  display:grid;grid-template-columns:1.35fr 1fr;gap:40px;align-items:center;
+}
+.hero .eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:8px 14px;border:1px solid var(--ink);border-radius:999px;
+  margin-bottom:28px;
+}
+.hero .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--taro);box-shadow:0 0 0 3px var(--taro-pale)}
+.hero h1{
+  font-family:"Fraunces",serif;
+  font-weight:340;
+  font-size:clamp(54px,9vw,148px);
+  line-height:.92;
+  letter-spacing:-.035em;
+  font-variation-settings:"SOFT" 50,"WONK" 1;
+}
+.hero h1 .it{font-style:italic;font-weight:300;color:var(--taro)}
+.hero h1 .stamp{
+  display:inline-block;position:relative;
+  font-style:italic;font-weight:400;
+}
+.hero h1 .stamp::after{
+  content:"";position:absolute;left:-4%;right:-4%;top:46%;height:.6em;
+  background:var(--taro-pale);z-index:-1;border-radius:4px;
+  transform:rotate(-1.5deg);
+}
+.hero .tag{
+  margin-top:32px;max-width:520px;
+  font-size:17px;line-height:1.5;color:var(--ink-soft);
+}
+.hero .tag b{color:var(--ink);font-weight:600}
+.hero .ctas{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:16px 26px;border-radius:999px;
+  font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  transition:transform .25s ease, background .25s ease, color .25s ease;
+}
+.btn.primary{background:var(--ink);color:var(--cream)}
+.btn.primary:hover{background:var(--taro);transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--cream);transform:translateY(-2px)}
+.btn .arrow{transition:transform .25s ease}
+.btn:hover .arrow{transform:translateX(4px)}
 
-    .nav-name {
-      font-size: 18px;
-      font-weight: 400;
-      letter-spacing: -0.02em;
-      cursor: default;
-    }
-    /* typing cursor on name */
-    .nav-name::after {
-      content: '|';
-      opacity: 1;
-      animation: blink 1s step-end infinite;
-      margin-left: 1px;
-      font-weight: 300;
-      color: #bbb;
-    }
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50%       { opacity: 0; }
-    }
+/* hero stats row */
+.hero .meta{
+  margin-top:64px;display:flex;gap:48px;flex-wrap:wrap;
+  padding-top:26px;border-top:1px solid var(--rule);
+  max-width:600px;
+}
+.hero .meta div .n{font-family:"Fraunces",serif;font-size:28px;font-weight:400;font-style:italic;color:var(--taro)}
+.hero .meta div .l{display:block;margin-top:2px}
 
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 13px;
-      font-weight: 400;
-      text-decoration: none;
-      color: #111;
-      letter-spacing: 0.02em;
-      transition: opacity 0.2s;
-    }
-    .nav-links a:hover { opacity: 0.5; }
+/* hero illustration column */
+.hero .vis{position:relative;height:600px}
+.cup{
+  position:absolute;left:50%;top:50%;
+  transform:translate(-50%,-50%) rotate(-4deg);
+  width:320px;height:440px;
+  filter:drop-shadow(20px 30px 40px rgba(60,40,90,.18));
+  animation:bob 5s ease-in-out infinite;
+}
+@keyframes bob{
+  0%,100%{transform:translate(-50%,-50%) rotate(-4deg)}
+  50%{transform:translate(-50%,calc(-50% - 10px)) rotate(-3deg)}
+}
 
-    /* ── ABOUT SECTION ── */
-    .about {
-      padding: 12px 32px 40px;
-      opacity: 0;
-      animation: fadeUp 0.55s ease 0.45s forwards;
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(14px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+/* sticker bits floating around the cup */
+.sticker{
+  position:absolute;
+  font-family:"Fraunces",serif;font-style:italic;font-weight:500;
+  background:var(--milk);color:var(--ink);
+  padding:9px 16px;border-radius:999px;
+  border:1px solid var(--ink);
+  font-size:14px;
+  box-shadow:3px 3px 0 var(--ink);
+  white-space:nowrap;
+}
+.sticker.s1{top:8%;left:-2%;transform:rotate(-8deg);background:var(--taro);color:var(--milk)}
+.sticker.s2{top:18%;right:-6%;transform:rotate(6deg)}
+.sticker.s3{bottom:18%;left:-6%;transform:rotate(4deg);background:var(--taro-pale)}
+.sticker.s4{bottom:6%;right:-2%;transform:rotate(-5deg)}
 
-    /* ✏️ EDIT: about text is inside this block */
-    .about-text {
-      font-size: 14px;
-      font-weight: 300;
-      color: #555;
-      line-height: 1.75;
-      max-width: 580px;
-    }
-    .about-text strong { color: #111; font-weight: 400; }
+@media(max-width:900px){
+  .hero{padding:130px 0 60px}
+  .hero .grid{grid-template-columns:1fr;gap:20px}
+  .hero .vis{height:460px;order:2}
+  .cup{width:260px;height:360px}
+  .hero .meta{gap:30px}
+}
 
-    /* ── TIMELINE ── */
-    .timeline {
-      padding: 8px 32px 80px;
-      width: 100%;
-    }
+/* ============ MARQUEE ============ */
+.marquee{
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  background:var(--ink);color:var(--cream);
+  padding:22px 0;overflow:hidden;
+  position:relative;
+}
+.marquee .track{
+  display:flex;gap:48px;width:max-content;
+  animation:scroll 38s linear infinite;
+  font-family:"Fraunces",serif;font-size:30px;font-weight:300;font-style:italic;
+  letter-spacing:-.01em;
+}
+.marquee .track span{display:flex;align-items:center;gap:48px}
+.marquee .track .star{
+  display:inline-block;width:18px;height:18px;
+  background:var(--taro);border-radius:50%;
+}
+@keyframes scroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
 
-    .timeline-row {
-      display: grid;
-      grid-template-columns: 110px 1fr;
-      padding: 9px 0;
-      border-top: 1px solid #e8e8e8;
-      align-items: baseline;
-      /* scroll fade-in — toggled by JS */
-      opacity: 0;
-      transform: translateY(10px);
-      transition: opacity 0.4s ease, transform 0.4s ease;
-    }
-    .timeline-row.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .timeline-row:last-child { border-bottom: 1px solid #e8e8e8; }
+/* ============ CONCEPT ============ */
+.concept{padding:140px 0 120px;position:relative}
+.concept .grid{display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start}
+.concept .label{color:var(--taro)}
+.concept h2{
+  font-family:"Fraunces",serif;font-weight:340;
+  font-size:clamp(40px,5.5vw,84px);line-height:.95;letter-spacing:-.03em;
+  margin-top:18px;
+}
+.concept h2 i{color:var(--taro);font-weight:300}
+.concept .body{font-size:19px;line-height:1.6;color:var(--ink-soft);max-width:560px}
+.concept .body p+p{margin-top:18px}
+.concept .body b{color:var(--ink);font-weight:600}
+.concept .pull{
+  margin-top:40px;padding:26px 28px;
+  border-left:3px solid var(--taro);
+  font-family:"Fraunces",serif;font-style:italic;font-size:22px;line-height:1.35;
+  color:var(--ink);
+}
+@media(max-width:900px){
+  .concept{padding:90px 0 60px}
+  .concept .grid{grid-template-columns:1fr;gap:30px}
+}
 
-    .date {
-      font-size: 13px;
-      color: #999;
-      font-weight: 300;
-      letter-spacing: 0.01em;
-      padding-right: 16px;
-      white-space: nowrap;
-    }
-    .entry {
-      font-size: 14px;
-      font-weight: 300;
-      line-height: 1.5;
-      color: #111;
-    }
-    .entry a {
-      color: #111;
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
+/* ============ MENU ============ */
+.menu{padding:120px 0;background:var(--cream-deep);position:relative}
+.menu .head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:30px;margin-bottom:64px}
+.menu .head h2{
+  font-family:"Fraunces",serif;font-weight:340;
+  font-size:clamp(44px,6vw,96px);line-height:.92;letter-spacing:-.03em;max-width:720px;
+}
+.menu .head h2 i{font-weight:300;color:var(--taro)}
+.menu .head .side{max-width:280px;font-size:14px;color:var(--ink-soft);line-height:1.55}
 
-    /* ── FOOTER ── */
-    footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 32px 32px;
-      font-size: 13px;
-      color: #999;
-      font-weight: 300;
-    }
-    footer a { color: #999; }
+.section-tabs{display:flex;gap:28px;margin-bottom:40px;border-bottom:1px solid var(--rule);padding-bottom:14px}
+.section-tabs span{font-family:"Fraunces",serif;font-style:italic;font-size:22px;color:var(--ink)}
+.section-tabs span.muted{color:rgba(27,20,16,.35);font-style:normal;font-family:"Manrope",sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;align-self:center}
 
-    /* ── SMOOTH HOVER on rows ── */
-    .timeline-row:hover .entry { color: #555; }
-    .timeline-row:hover .date  { color: #bbb; }
-    .timeline-row { transition: opacity 0.4s ease, transform 0.4s ease; }
-    .timeline-row .date,
-    .timeline-row .entry { transition: color 0.2s; }
-  </style>
+.cards{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--rule);
+  border:1px solid var(--rule);
+}
+.card{
+  background:var(--cream-deep);
+  padding:36px 32px 32px;
+  position:relative;
+  transition:background .35s ease;
+  min-height:280px;
+  display:flex;flex-direction:column;
+}
+.card:hover{background:var(--milk)}
+.card .num{font-family:"Fraunces",serif;font-style:italic;font-size:13px;color:var(--taro)}
+.card .kind{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);float:right}
+.card h3{
+  font-family:"Fraunces",serif;font-weight:380;
+  font-size:36px;line-height:1.02;letter-spacing:-.02em;
+  margin-top:24px;
+}
+.card h3 i{font-weight:340;color:var(--taro);display:block}
+.card p{margin-top:14px;font-size:14.5px;line-height:1.55;color:var(--ink-soft);flex:1}
+.card .foot{
+  margin-top:22px;padding-top:16px;border-top:1px dashed var(--rule);
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);
+}
+.card .foot .star{color:var(--taro);font-style:italic;font-family:"Fraunces",serif;text-transform:none;letter-spacing:0;font-size:13px}
+@media(max-width:900px){
+  .menu{padding:80px 0}
+  .cards{grid-template-columns:1fr}
+  .card h3{font-size:32px}
+}
+
+/* ============ HOW IT WORKS ============ */
+.how{padding:140px 0 130px;position:relative;overflow:hidden}
+.how .head{max-width:880px;margin-bottom:80px}
+.how .label{color:var(--taro)}
+.how h2{
+  font-family:"Fraunces",serif;font-weight:340;
+  font-size:clamp(44px,6.5vw,108px);line-height:.92;letter-spacing:-.035em;
+  margin-top:16px;
+}
+.how h2 i{color:var(--taro);font-weight:300}
+.how .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
+.step{
+  background:var(--milk);
+  border:1px solid var(--ink);
+  border-radius:18px;
+  padding:28px 24px 30px;
+  position:relative;
+  transition:transform .35s ease, background .35s ease;
+}
+.step:nth-child(1){transform:rotate(-1.5deg)}
+.step:nth-child(2){transform:rotate(1deg) translateY(14px)}
+.step:nth-child(3){transform:rotate(-.5deg) translateY(-8px)}
+.step:nth-child(4){transform:rotate(1.5deg) translateY(20px)}
+.step:hover{background:var(--taro-pale);transform:rotate(0) translateY(-6px)}
+.step .n{
+  font-family:"Fraunces",serif;font-style:italic;font-weight:380;
+  font-size:64px;color:var(--taro);line-height:.9;
+}
+.step .ico{
+  width:64px;height:64px;margin-top:14px;
+}
+.step h3{
+  font-family:"Fraunces",serif;font-weight:400;
+  font-size:24px;line-height:1.05;letter-spacing:-.01em;
+  margin-top:18px;
+}
+.step p{margin-top:8px;font-size:13.5px;line-height:1.5;color:var(--ink-soft)}
+@media(max-width:900px){
+  .how{padding:80px 0}
+  .how .steps{grid-template-columns:1fr;gap:18px}
+  .step:nth-child(n){transform:none}
+  .step:nth-child(odd){transform:rotate(-.8deg)}
+  .step:nth-child(even){transform:rotate(.8deg)}
+}
+
+/* ============ VISIT ============ */
+.visit{padding:140px 0;background:var(--ink);color:var(--cream);position:relative;overflow:hidden}
+.visit::before{
+  content:"302";
+  position:absolute;right:-40px;bottom:-130px;
+  font-family:"Fraunces",serif;font-style:italic;font-weight:300;
+  font-size:clamp(280px,38vw,560px);
+  color:var(--taro);opacity:.16;line-height:.8;letter-spacing:-.04em;
+  pointer-events:none;
+}
+.visit .grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;position:relative;z-index:2}
+.visit .label{color:var(--taro-pale)}
+.visit h2{
+  font-family:"Fraunces",serif;font-weight:340;
+  font-size:clamp(44px,6.5vw,108px);line-height:.9;letter-spacing:-.035em;
+  margin-top:16px;
+}
+.visit h2 i{color:var(--taro-pale);font-weight:300}
+.info{display:flex;flex-direction:column;gap:32px;padding-top:20px}
+.info .row{border-top:1px solid rgba(255,255,255,.14);padding-top:22px}
+.info .row .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--taro-pale);margin-bottom:10px}
+.info .row .v{font-family:"Fraunces",serif;font-size:26px;font-weight:380;line-height:1.2;letter-spacing:-.01em}
+.info .row .v a{display:inline-flex;align-items:center;gap:8px;border-bottom:1px solid transparent;transition:border .25s}
+.info .row .v a:hover{border-color:var(--taro-pale)}
+.info .row .sub{display:block;margin-top:6px;font-family:"Manrope",sans-serif;font-size:13px;color:rgba(255,255,255,.6)}
+@media(max-width:900px){
+  .visit{padding:80px 0}
+  .visit .grid{grid-template-columns:1fr;gap:30px}
+}
+
+/* ============ FOOTER ============ */
+footer{padding:50px 0 40px;background:var(--cream)}
+footer .row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+footer .mark{display:flex;align-items:center;gap:10px}
+footer .mark .badge{
+  width:30px;height:30px;border-radius:50%;background:var(--taro);color:var(--milk);
+  display:grid;place-items:center;font-family:"Fraunces",serif;font-style:italic;font-weight:700;font-size:13px;
+  transform:rotate(-6deg);
+}
+footer .mark span{font-family:"Fraunces",serif;font-size:16px}
+footer .ig{font-size:13px;font-weight:500}
+footer .ig:hover{color:var(--taro)}
+footer .copy{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease, transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+</style>
 </head>
 <body>
 
-  <!-- ══════════════════════════════
-       NAV
-       ✏️ Update href links with your real profiles.
-       Add more: <li><a href="..." target="_blank">XX</a></li>
-  ═══════════════════════════════ -->
-  <nav>
-    <span class="nav-name" id="typed-name"></span>
-    <ul class="nav-links">
-      <li><a href="https://x.com/yourusername" target="_blank">X</a></li>
-      <li><a href="https://instagram.com/yourusername" target="_blank">IG</a></li>
-      <li><a href="https://github.com/yourusername" target="_blank">GH</a></li>
-      <li><a href="https://youtube.com/@yourusername" target="_blank">YT</a></li>
-    </ul>
-  </nav>
-
-  <!-- ══════════════════════════════
-       ABOUT
-       ✏️ Edit the paragraph below — keep it short, 2–4 sentences.
-       Use <strong>word</strong> to bold anything.
-  ═══════════════════════════════ -->
-  <div class="about">
-    <p class="about-text">
-      I'm <strong>Rohan Iyer</strong>, a <strong>15-year-old</strong> builder from California.
-      I'm into <strong>coding, tech, and making things from scratch</strong>.
-      This is my log — everything I'm working on, learning, and doing.
-      <!-- ✏️ Edit this to sound like you -->
-    </p>
+<!-- NAV -->
+<nav class="top">
+  <a class="mark" href="#top">
+    <div class="badge">3</div>
+    <div class="name">Class 302</div>
+  </a>
+  <div class="links">
+    <a href="#concept">Concept</a>
+    <a href="#menu">Menu</a>
+    <a href="#how">How it works</a>
+    <a href="#visit">Visit</a>
   </div>
+  <a class="cta" href="#visit">Find us →</a>
+</nav>
 
-  <!-- ══════════════════════════════
-       TIMELINE
-       ✏️ HOW TO ADD A NEW ENTRY:
-       Copy this block and paste it right below the "ADD NEW ENTRIES HERE" comment:
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="eyebrow"><span class="dot"></span><span class="tiny">Self-serve boba bar · Irvine, CA</span></div>
+        <h1 class="reveal">
+          Boba,<br>
+          <span class="it">but make it</span><br>
+          <span class="stamp">yours.</span>
+        </h1>
+        <p class="tag reveal">A self-serve tea bar where <b>you</b> are the bartender. Stack the toppings, pour the tea, and we'll seal it like it's homework due tomorrow.</p>
+        <div class="ctas reveal">
+          <a class="btn primary" href="#menu">See the menu <span class="arrow">→</span></a>
+          <a class="btn ghost" href="#visit">Get directions <span class="arrow">→</span></a>
+        </div>
+        <div class="meta">
+          <div><div class="n">20</div><div class="l label">toppings</div></div>
+          <div><div class="n">6</div><div class="l label">shaved snows</div></div>
+          <div><div class="n">∞</div><div class="l label">combinations</div></div>
+        </div>
+      </div>
 
-         <div class="timeline-row">
-           <span class="date">MM.DD.YY</span>
-           <span class="entry">What you did</span>
-         </div>
+      <div class="vis" aria-hidden="true">
+        <!-- stickers -->
+        <div class="sticker s1">freshly sealed ✦</div>
+        <div class="sticker s2">made by you</div>
+        <div class="sticker s3">real tapioca</div>
+        <div class="sticker s4">since '04</div>
 
-       With a link:
-         <span class="entry">Built <a href="https://..." target="_blank">Project</a></span>
+        <!-- the cup -->
+        <svg class="cup" viewBox="0 0 320 440" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <clipPath id="cupClip">
+              <path d="M58 90 L262 90 L242 420 Q160 440 78 420 Z"/>
+            </clipPath>
+            <linearGradient id="tea" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="#C9A77A"/>
+              <stop offset="1" stop-color="#8E5E33"/>
+            </linearGradient>
+            <linearGradient id="taroG" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="#B594D4"/>
+              <stop offset="1" stop-color="#7C5BAA"/>
+            </linearGradient>
+          </defs>
 
-       Always newest at the TOP.
-  ═══════════════════════════════ -->
-  <div class="timeline">
+          <!-- cup outline back fill (cream so toppings show) -->
+          <path d="M58 90 L262 90 L242 420 Q160 440 78 420 Z" fill="#FFFBF4"/>
 
-    <div class="timeline-row">
-      <span class="date" id="today-date"></span>
-      <span class="entry">???</span>
+          <!-- tea fill -->
+          <g clip-path="url(#cupClip)">
+            <rect x="58" y="170" width="204" height="270" fill="url(#tea)"/>
+            <!-- foam line -->
+            <ellipse cx="160" cy="175" rx="105" ry="10" fill="#F1EADE" opacity=".95"/>
+
+            <!-- tapioca pearls clustered at the bottom -->
+            <g fill="#1B1410">
+              <circle cx="100" cy="395" r="9"/><circle cx="118" cy="402" r="10"/>
+              <circle cx="138" cy="395" r="9"/><circle cx="158" cy="404" r="11"/>
+              <circle cx="178" cy="396" r="10"/><circle cx="198" cy="402" r="9"/>
+              <circle cx="218" cy="395" r="10"/>
+              <circle cx="110" cy="380" r="8"/><circle cx="130" cy="378" r="9"/>
+              <circle cx="150" cy="382" r="10"/><circle cx="172" cy="378" r="9"/>
+              <circle cx="192" cy="382" r="10"/><circle cx="210" cy="380" r="8"/>
+              <circle cx="120" cy="365" r="8"/><circle cx="142" cy="362" r="9"/>
+              <circle cx="165" cy="366" r="9"/><circle cx="186" cy="362" r="8"/>
+            </g>
+            <!-- popping boba (purple) scattered -->
+            <g fill="url(#taroG)" opacity=".92">
+              <circle cx="95" cy="280" r="6"/><circle cx="135" cy="260" r="7"/>
+              <circle cx="180" cy="290" r="6"/><circle cx="220" cy="270" r="7"/>
+              <circle cx="115" cy="320" r="6"/><circle cx="200" cy="330" r="7"/>
+              <circle cx="155" cy="310" r="6"/>
+            </g>
+          </g>
+
+          <!-- sealed lid -->
+          <rect x="54" y="78" width="212" height="22" rx="3" fill="#7C5BAA"/>
+          <rect x="54" y="78" width="212" height="22" rx="3" fill="none" stroke="#1B1410" stroke-width="2"/>
+          <text x="160" y="94" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="13" fill="#FFFBF4">CLASS 302 · sealed fresh</text>
+
+          <!-- cup outline -->
+          <path d="M58 90 L262 90 L242 420 Q160 440 78 420 Z" fill="none" stroke="#1B1410" stroke-width="2.5"/>
+
+          <!-- straw -->
+          <rect x="178" y="40" width="14" height="100" rx="3" fill="#E9DEF5" stroke="#1B1410" stroke-width="2" transform="rotate(8 185 90)"/>
+        </svg>
+      </div>
     </div>
-
-    <!-- ✏️ ADD NEW ENTRIES HERE ↓ -->
-   <div class="timeline-row">
-      <span class="date">03.26.26</span>
-      <span class="entry">Built FORGE — an AI-powered mobile app for teenagers to conquer their weaknesses through boss fights. React Native, Expo, Claude AI. Built in one day.</span>
-    </div>
-    
-      <div class="timeline-row">
-      <span class="date">03.24.26</span>
-      <span class="entry">Makes his first Roblox Ai MCP</span>
-    </div>
-
-    <div class="timeline-row">
-      <span class="date">03.23.26</span>
-      <span class="entry">Launches personal portfolio website</span>
-    </div>
-
-    <div class="timeline-row">
-      <span class="date">03.20.26</span>
-      <span class="entry">Starts working on "Sword RNG"</span>
-    </div>
-
-    <div class="timeline-row">
-      <span class="date">MM.DD.YY</span>
-      <span class="entry">Another thing you did — school, code, life</span>
-    </div>
-
-    <div class="timeline-row">
-      <span class="date">MM.DD.YY</span>
-      <span class="entry">Built <a href="#" target="_blank">something cool</a></span>
-    </div>
-
-
-    <!-- ✏️ Keep adding rows above this line -->
-
   </div>
+</section>
 
-  <!-- ── FOOTER ── -->
-  <footer>
-    <span>© 2026 <a href="#">Rohan Iyer</a></span>
-    <span id="clock"></span>
-  </footer>
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Build your own boba<i class="star"></i>twenty toppings deep<i class="star"></i>egg pudding supremacy<i class="star"></i>shaved snow szn<i class="star"></i>sealed not stirred<i class="star"></i>no free refill ✦ sorry<i class="star"></i>open 'til 12:00<i class="star"></i></span>
+    <span>Build your own boba<i class="star"></i>twenty toppings deep<i class="star"></i>egg pudding supremacy<i class="star"></i>shaved snow szn<i class="star"></i>sealed not stirred<i class="star"></i>no free refill ✦ sorry<i class="star"></i>open 'til 12:00<i class="star"></i></span>
+  </div>
+</div>
 
-  <script>
-    // ── TYPING ANIMATION on name ──
-    const nameEl = document.getElementById('typed-name');
-    const fullName = 'Rohan.'; // ✏️ change if you want
-    let i = 0;
-    function type() {
-      if (i <= fullName.length) {
-        nameEl.textContent = fullName.slice(0, i);
-        i++;
-        setTimeout(type, i === 1 ? 500 : 90); // small delay before starting
-      }
+<!-- CONCEPT -->
+<section class="concept" id="concept">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="label">01 / The concept</div>
+        <h2>A tea bar<br><i>you run</i>.</h2>
+      </div>
+      <div class="body">
+        <p>We handed the bar over. Walk up, grab a cup, load it like a sundae from twenty toppings, then fill it from every tea on tap. Zero judgment about that double pudding move — we seal it, you take the credit.</p>
+        <p>It's bubble tea as <b>choose-your-own-adventure</b>, plus a kitchen out back making the kind of Taiwanese comfort food — and a shaved snow counter — that turns a study session into a dinner.</p>
+        <div class="pull">"It's the only place where ordering takes five minutes and I still want it to take longer."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="label" style="color:var(--taro)">02 / The menu</div>
+        <h2>Greatest hits,<br><i>house favorites</i>.</h2>
+      </div>
+      <div class="side">A short list of the things our regulars order without looking up. Full menu in store — and yes, you can still freestyle.</div>
+    </div>
+
+    <div class="section-tabs"><span>Self-serve drinks</span><span class="muted">build it · seal it · go</span></div>
+    <div class="cards">
+      <div class="card">
+        <span class="num">№ 01</span><span class="kind">signature</span>
+        <h3>302 Milk Tea<i>the house pour</i></h3>
+        <p>The one with our name on it. Black tea steeped strong, creamy, dialled to that classic 302 balance. Load it with boba and you've ordered like a regular.</p>
+        <div class="foot"><span>most ordered</span><span class="star">★ house pick</span></div>
+      </div>
+      <div class="card">
+        <span class="num">№ 02</span><span class="kind">cult favorite</span>
+        <h3>Taro Milk Tea<i>purple &amp; delicious</i></h3>
+        <p>Real taro, full cream, sweet and faintly nutty. Looks unreal in the cup. Photographs like a dream. Tastes better than it photographs.</p>
+        <div class="foot"><span>caffeine: low</span><span class="star">✦ ig-famous</span></div>
+      </div>
+      <div class="card">
+        <span class="num">№ 03</span><span class="kind">floral</span>
+        <h3>Honey Jasmine Milk Tea<i>soft, gold, gentle</i></h3>
+        <p>Jasmine green, a long pour of honey, milk on top. Tastes like the first warm afternoon of spring quarter — fight us on it.</p>
+        <div class="foot"><span>caffeine: medium</span><span class="star">✦ classic</span></div>
+      </div>
+      <div class="card">
+        <span class="num">№ 04</span><span class="kind">light &amp; cool</span>
+        <h3>Winter Melon<i>cold-day, hot-day</i></h3>
+        <p>House winter melon syrup over ice. Light, faintly caramel, weirdly addictive. The "I don't like sweet drinks" person's gateway drug.</p>
+        <div class="foot"><span>caffeine: none</span><span class="star">✦ all ages</span></div>
+      </div>
+      <div class="card">
+        <span class="num">№ 05</span><span class="kind">slush</span>
+        <h3>Mango Cream Slush<i>fruity, frozen, loud</i></h3>
+        <p>Real mango, blended frozen, finished with a cream cap. Sunny on a Tuesday, life-saving in August. Honeydew slush is right next to it.</p>
+        <div class="foot"><span>frozen</span><span class="star">✦ summer staple</span></div>
+      </div>
+      <div class="card" style="background:var(--taro);color:var(--milk)">
+        <span class="num" style="color:var(--milk)">№ 06</span><span class="kind" style="color:rgba(255,255,255,.7)">freestyle</span>
+        <h3 style="color:var(--milk)">Your Cup<i style="color:var(--taro-pale)">we don't know it yet</i></h3>
+        <p style="color:rgba(255,255,255,.85)">Whatever you build at the bar — twenty toppings to choose from, every tea on tap. Triple egg pudding? Aloe + passion fruit + lychee? Your move.</p>
+        <div class="foot" style="color:rgba(255,255,255,.6);border-top-color:rgba(255,255,255,.18)"><span>self-serve · split cups available</span><span class="star" style="color:var(--taro-pale)">★ the whole point</span></div>
+      </div>
+    </div>
+
+    <div class="section-tabs" style="margin-top:80px"><span>From the kitchen</span><span class="muted">noodles · rice · appetizers</span></div>
+    <div class="cards">
+      <div class="card">
+        <span class="num">№ 07</span><span class="kind">signature</span>
+        <h3>302 Fried Rice<i>wok-charred, gold-edged</i></h3>
+        <p>Egg, scallion, that smoky wok hei from a properly screaming pan. Comes out gold-edged. Disappears faster than the boba. House classic.</p>
+        <div class="foot"><span>rice</span><span class="star">★ best seller</span></div>
+      </div>
+      <div class="card">
+        <span class="num">№ 08</span><span class="kind">signature</span>
+        <h3>Popcorn Chicken<i>five-spice, basil</i></h3>
+        <p>Fried to order, tossed in five-spice salt, fried basil leaves on top. The number one reason an iced milk tea turns into dinner. Pick your spice.</p>
+        <div class="foot"><span>appetizer</span><span class="star">★ iconic</span></div>
+      </div>
+      <div class="card">
+        <span class="num">№ 09</span><span class="kind">noodles · hot</span>
+        <h3>Beef Noodle Soup<i>slow, deep, dark</i></h3>
+        <p>Hours-long broth, hand-pulled noodles, tendon if you know. The bowl that makes the strip mall feel like a back-alley shop in Taipei.</p>
+        <div class="foot"><span>kitchen · winter MVP</span><span class="star">★ regulars only</span></div>
+      </div>
+      <div class="card">
+        <span class="num">№ 10</span><span class="kind">noodles · spicy</span>
+        <h3>Spicy Wonton Noodles<i>sichuan-style heat</i></h3>
+        <p>Plump pork wontons, chewy noodles, chili oil that tints everything red. Numbing in all the right places. Order milk tea on standby.</p>
+        <div class="foot"><span>kitchen · 🌶</span><span class="star">✦ underrated</span></div>
+      </div>
+      <div class="card">
+        <span class="num">№ 11</span><span class="kind">rice plate</span>
+        <h3>Crispy Pork Chop<i>over rice, with pickles</i></h3>
+        <p>Marinated, pounded thin, fried until shattering-crisp. Served over rice with braised egg and Taiwanese-style pickles. Lunch settled.</p>
+        <div class="foot"><span>kitchen</span><span class="star">✦ comfort</span></div>
+      </div>
+      <div class="card">
+        <span class="num">№ 12</span><span class="kind">night-market</span>
+        <h3>Oyster Pancake<i>chewy, savory, eggy</i></h3>
+        <p>Plump oysters, egg, sweet potato starch, finished with a sweet-savory sauce. Straight off a Taipei night market street. Try it once, get it forever.</p>
+        <div class="foot"><span>appetizer</span><span class="star">✦ if you know</span></div>
+      </div>
+    </div>
+
+    <div class="section-tabs" style="margin-top:80px"><span>Shaved Snow</span><span class="muted">soft, sweet, share-able</span></div>
+    <div class="cards">
+      <div class="card">
+        <span class="num">№ 13</span><span class="kind">snow · house</span>
+        <h3>Boba Milk Tea Snow<i>milk tea, but make it snow</i></h3>
+        <p>Milk tea–flavored shaved snow, condensed milk, egg pudding, and chewy boba on top. The drink and the dessert in the same bowl. Bring a friend.</p>
+        <div class="foot"><span>shaved snow</span><span class="star">★ instant classic</span></div>
+      </div>
+      <div class="card">
+        <span class="num">№ 14</span><span class="kind">snow · purple</span>
+        <h3>Taro Red Bean<i>creamy, earthy, lavender</i></h3>
+        <p>Milk snow, condensed milk, taro, red bean, mochi. Looks like a Pinterest mood board. Tastes like a hug from your aunt in Taipei.</p>
+        <div class="foot"><span>shaved snow</span><span class="star">✦ aesthetic pick</span></div>
+      </div>
+      <div class="card">
+        <span class="num">№ 15</span><span class="kind">snow · fruit</span>
+        <h3>Mango Mochi<i>tropical, soft, golden</i></h3>
+        <p>Mango snow, condensed milk, mochi, milk pudding, real mango. The summer one. Eats like a cloud, photographs like a postcard.</p>
+        <div class="foot"><span>shaved snow</span><span class="star">✦ summer order</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="head">
+      <div class="label">03 / How it works</div>
+      <h2>Three steps,<br><i>one golden rule</i>.</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="n">01</div>
+        <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="#1B1410" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 16 L48 16 L44 54 Q32 58 20 54 Z"/>
+          <path d="M14 16 L50 16"/>
+          <path d="M22 24 L42 24" stroke="#7C5BAA"/>
+        </svg>
+        <h3>Purchase a cup</h3>
+        <p>Pay first at the register. Small or regular — that empty cup is your ticket to the bar.</p>
+      </div>
+      <div class="step">
+        <div class="n">02</div>
+        <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="#1B1410" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="20" cy="40" r="5" fill="#1B1410"/>
+          <circle cx="32" cy="44" r="5" fill="#7C5BAA"/>
+          <circle cx="44" cy="40" r="5" fill="#1B1410"/>
+          <circle cx="26" cy="32" r="5" fill="#7C5BAA"/>
+          <circle cx="38" cy="32" r="5" fill="#1B1410"/>
+          <path d="M12 50 L52 50"/>
+        </svg>
+        <h3>Load &amp; fill</h3>
+        <p>Mochi, taro, boba, aloe, egg pudding, lychee jelly — twenty toppings in. Then your drink of choice. We're not the topping police.</p>
+      </div>
+      <div class="step">
+        <div class="n">03</div>
+        <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="#1B1410" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 22 L46 22 L42 54 Q32 58 22 54 Z" fill="#FFFBF4"/>
+          <rect x="16" y="14" width="32" height="10" rx="2" fill="#7C5BAA"/>
+          <path d="M30 8 L34 4" stroke="#7C5BAA"/>
+          <path d="M40 10 L44 6" stroke="#7C5BAA"/>
+          <path d="M22 8 L26 4" stroke="#7C5BAA"/>
+        </svg>
+        <h3>Get it sealed</h3>
+        <p>Bring it back to the cashier. We seal it tight, you walk out looking like a pro. Class dismissed.</p>
+      </div>
+      <div class="step" style="background:var(--ink);color:var(--cream);border-color:var(--ink)">
+        <div class="n" style="color:var(--taro-pale)">!</div>
+        <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="#FAF6F0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="32" cy="32" r="22"/>
+          <path d="M20 20 L44 44" stroke="#E9DEF5"/>
+        </svg>
+        <h3 style="color:var(--cream)">No free refills</h3>
+        <p style="color:rgba(255,255,255,.7)">House rule, hand-painted on the sign. Tray goes back to the trash station. We love you anyway.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="label">04 / Visit</div>
+        <h2>Come<br><i>build something</i>.</h2>
+      </div>
+      <div class="info">
+        <div class="row">
+          <div class="k">Address</div>
+          <div class="v"><a href="https://maps.google.com/?q=13252+Jamboree+Rd,+Irvine,+CA+92602" target="_blank" rel="noopener">13252 Jamboree Rd<br>Irvine, CA 92602 →</a><span class="sub">Minutes from UCI. Plenty of parking.</span></div>
+        </div>
+        <div class="row">
+          <div class="k">Hours</div>
+          <div class="v">11:00 AM — 12:00 AM<span class="sub">Open daily, every day, no exceptions.</span></div>
+        </div>
+        <div class="row">
+          <div class="k">Phone</div>
+          <div class="v"><a href="tel:+17143891177">(714) 389-1177</a><span class="sub">Call ahead for large kitchen orders.</span></div>
+        </div>
+        <div class="row">
+          <div class="k">Reviews</div>
+          <div class="v"><a href="https://www.yelp.com/biz/class-302-tea-cafe-irvine-3" target="_blank" rel="noopener">Read us on Yelp →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap row">
+    <div class="mark"><div class="badge">3</div><span>Class 302 Tea Cafe</span></div>
+    <a class="ig" href="https://instagram.com/class302teacafe" target="_blank" rel="noopener">@class302teacafe ↗</a>
+    <div class="copy">© 2026 Class 302 · Irvine, CA</div>
+  </div>
+</footer>
+
+<script>
+// reveal on scroll
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', e=>{
+    const id = a.getAttribute('href');
+    if(id.length>1){
+      const el = document.querySelector(id);
+      if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth',block:'start'}); }
     }
-    type();
-
-    // ── TODAY'S DATE ──
-    const todayEl = document.getElementById('today-date');
-    const now = new Date();
-    const mm = String(now.getMonth() + 1).padStart(2, '0');
-    const dd = String(now.getDate()).padStart(2, '0');
-    const yy = String(now.getFullYear()).slice(2);
-    todayEl.textContent = `${mm}.${dd}.${yy}`;
-
-    // ── LIVE CLOCK ── ✏️ change "Rohan" to your name or city
-    const clockEl = document.getElementById('clock');
-    function updateClock() {
-      const d = new Date();
-      const h = String(d.getHours()).padStart(2, '0');
-      const m = String(d.getMinutes()).padStart(2, '0');
-      clockEl.textContent = `Rohan Time: ${h}:${m}`;
-    }
-    updateClock();
-    setInterval(updateClock, 1000);
-
-    // ── SCROLL FADE-IN on timeline rows ──
-    const rows = document.querySelectorAll('.timeline-row');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
-
-    // stagger the first few rows on load
-    rows.forEach((row, idx) => {
-      if (idx < 6) {
-        setTimeout(() => row.classList.add('visible'), 600 + idx * 80);
-      } else {
-        observer.observe(row);
-      }
-    });
-  </script>
-
+  });
+});
+</script>
 </body>
 </html>
