@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Class 302 Tea Cafe — Build Your Own Boba, Irvine</title>
-<meta name="description" content="Self-serve boba bar in Irvine, CA. Pick your cup, load your toppings, fill it with tea, get it sealed. Plus Taiwanese eats.">
+<title>Class 302 Cerritos — Taiwanese Night Market Eats &amp; Boba</title>
+<meta name="description" content="Taiwanese restaurant in Cerritos, CA. Stinky tofu, oyster omelet, hot pot, sizzling tappan, hand-pulled noodles, milk teas, and shaved snow.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -27,18 +27,15 @@ img,svg{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 
-/* type system */
 .serif{font-family:"Fraunces",Georgia,serif;font-optical-sizing:auto;font-variation-settings:"SOFT" 30,"WONK" 1}
 .label{font-family:"Manrope",sans-serif;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
 .tiny{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
 
-/* grain overlay */
 body::before{
   content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.35;mix-blend-mode:multiply;
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.6' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.42  0 0 0 0 0.36  0 0 0 0 0.28  0 0 0 0.45 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 }
 
-/* container */
 .wrap{max-width:1380px;margin:0 auto;padding:0 32px}
 @media(max-width:640px){.wrap{padding:0 20px}}
 
@@ -61,6 +58,7 @@ nav.top .mark .badge{
   box-shadow:0 2px 0 var(--taro-deep);
 }
 nav.top .mark .name{font-family:"Fraunces",serif;font-weight:500;font-size:18px;letter-spacing:-.01em}
+nav.top .mark .name small{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-family:"Manrope",sans-serif;font-weight:600;color:var(--taro);display:block;margin-top:-2px}
 nav.top .links{display:flex;gap:28px}
 nav.top .links a{font-size:13px;font-weight:500;position:relative}
 nav.top .links a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
@@ -110,7 +108,7 @@ nav.top .cta:hover{background:var(--taro);transform:translateY(-1px)}
   transform:rotate(-1.5deg);
 }
 .hero .tag{
-  margin-top:32px;max-width:520px;
+  margin-top:32px;max-width:540px;
   font-size:17px;line-height:1.5;color:var(--ink-soft);
 }
 .hero .tag b{color:var(--ink);font-weight:600}
@@ -128,30 +126,44 @@ nav.top .cta:hover{background:var(--taro);transform:translateY(-1px)}
 .btn .arrow{transition:transform .25s ease}
 .btn:hover .arrow{transform:translateX(4px)}
 
-/* hero stats row */
 .hero .meta{
   margin-top:64px;display:flex;gap:48px;flex-wrap:wrap;
   padding-top:26px;border-top:1px solid var(--rule);
-  max-width:600px;
+  max-width:660px;
 }
 .hero .meta div .n{font-family:"Fraunces",serif;font-size:28px;font-weight:400;font-style:italic;color:var(--taro)}
 .hero .meta div .l{display:block;margin-top:2px}
 
-/* hero illustration column */
+/* hero illustration column - bowl this time, not cup */
 .hero .vis{position:relative;height:600px}
-.cup{
+
+.bowl{
   position:absolute;left:50%;top:50%;
-  transform:translate(-50%,-50%) rotate(-4deg);
-  width:320px;height:440px;
+  transform:translate(-50%,-50%) rotate(-3deg);
+  width:380px;height:380px;
   filter:drop-shadow(20px 30px 40px rgba(60,40,90,.18));
-  animation:bob 5s ease-in-out infinite;
+  animation:bob 6s ease-in-out infinite;
 }
 @keyframes bob{
-  0%,100%{transform:translate(-50%,-50%) rotate(-4deg)}
-  50%{transform:translate(-50%,calc(-50% - 10px)) rotate(-3deg)}
+  0%,100%{transform:translate(-50%,-50%) rotate(-3deg)}
+  50%{transform:translate(-50%,calc(-50% - 8px)) rotate(-2deg)}
 }
 
-/* sticker bits floating around the cup */
+.steam{
+  position:absolute;
+  font-family:"Fraunces",serif;font-style:italic;
+  color:var(--taro);opacity:.55;
+  font-size:34px;
+  animation:rise 4s ease-in-out infinite;
+}
+.steam.s1{top:8%;left:42%;animation-delay:0s}
+.steam.s2{top:6%;left:52%;animation-delay:1.2s}
+.steam.s3{top:10%;left:60%;animation-delay:2s}
+@keyframes rise{
+  0%,100%{transform:translateY(0);opacity:.4}
+  50%{transform:translateY(-12px);opacity:.7}
+}
+
 .sticker{
   position:absolute;
   font-family:"Fraunces",serif;font-style:italic;font-weight:500;
@@ -162,16 +174,16 @@ nav.top .cta:hover{background:var(--taro);transform:translateY(-1px)}
   box-shadow:3px 3px 0 var(--ink);
   white-space:nowrap;
 }
-.sticker.s1{top:8%;left:-2%;transform:rotate(-8deg);background:var(--taro);color:var(--milk)}
-.sticker.s2{top:18%;right:-6%;transform:rotate(6deg)}
-.sticker.s3{bottom:18%;left:-6%;transform:rotate(4deg);background:var(--taro-pale)}
-.sticker.s4{bottom:6%;right:-2%;transform:rotate(-5deg)}
+.sticker.s1{top:6%;left:-2%;transform:rotate(-8deg);background:var(--taro);color:var(--milk)}
+.sticker.s2{top:22%;right:-4%;transform:rotate(6deg)}
+.sticker.s3{bottom:20%;left:-6%;transform:rotate(4deg);background:var(--taro-pale)}
+.sticker.s4{bottom:6%;right:0%;transform:rotate(-5deg)}
 
 @media(max-width:900px){
   .hero{padding:130px 0 60px}
   .hero .grid{grid-template-columns:1fr;gap:20px}
-  .hero .vis{height:460px;order:2}
-  .cup{width:260px;height:360px}
+  .hero .vis{height:440px;order:2}
+  .bowl{width:300px;height:300px}
   .hero .meta{gap:30px}
 }
 
@@ -208,7 +220,7 @@ nav.top .cta:hover{background:var(--taro);transform:translateY(-1px)}
   margin-top:18px;
 }
 .concept h2 i{color:var(--taro);font-weight:300}
-.concept .body{font-size:19px;line-height:1.6;color:var(--ink-soft);max-width:560px}
+.concept .body{font-size:19px;line-height:1.6;color:var(--ink-soft);max-width:580px}
 .concept .body p+p{margin-top:18px}
 .concept .body b{color:var(--ink);font-weight:600}
 .concept .pull{
@@ -227,14 +239,14 @@ nav.top .cta:hover{background:var(--taro);transform:translateY(-1px)}
 .menu .head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:30px;margin-bottom:64px}
 .menu .head h2{
   font-family:"Fraunces",serif;font-weight:340;
-  font-size:clamp(44px,6vw,96px);line-height:.92;letter-spacing:-.03em;max-width:720px;
+  font-size:clamp(44px,6vw,96px);line-height:.92;letter-spacing:-.03em;max-width:820px;
 }
 .menu .head h2 i{font-weight:300;color:var(--taro)}
-.menu .head .side{max-width:280px;font-size:14px;color:var(--ink-soft);line-height:1.55}
+.menu .head .side{max-width:300px;font-size:14px;color:var(--ink-soft);line-height:1.55}
 
-.section-tabs{display:flex;gap:28px;margin-bottom:40px;border-bottom:1px solid var(--rule);padding-bottom:14px}
+.section-tabs{display:flex;gap:28px;margin-bottom:40px;border-bottom:1px solid var(--rule);padding-bottom:14px;flex-wrap:wrap;align-items:baseline}
 .section-tabs span{font-family:"Fraunces",serif;font-style:italic;font-size:22px;color:var(--ink)}
-.section-tabs span.muted{color:rgba(27,20,16,.35);font-style:normal;font-family:"Manrope",sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;align-self:center}
+.section-tabs span.muted{color:rgba(27,20,16,.4);font-style:normal;font-family:"Manrope",sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;align-self:center}
 
 .cards{
   display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
@@ -254,10 +266,10 @@ nav.top .cta:hover{background:var(--taro);transform:translateY(-1px)}
 .card .kind{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);float:right}
 .card h3{
   font-family:"Fraunces",serif;font-weight:380;
-  font-size:36px;line-height:1.02;letter-spacing:-.02em;
+  font-size:34px;line-height:1.02;letter-spacing:-.02em;
   margin-top:24px;
 }
-.card h3 i{font-weight:340;color:var(--taro);display:block}
+.card h3 i{font-weight:340;color:var(--taro);display:block;font-size:.7em;margin-top:4px}
 .card p{margin-top:14px;font-size:14.5px;line-height:1.55;color:var(--ink-soft);flex:1}
 .card .foot{
   margin-top:22px;padding-top:16px;border-top:1px dashed var(--rule);
@@ -268,12 +280,12 @@ nav.top .cta:hover{background:var(--taro);transform:translateY(-1px)}
 @media(max-width:900px){
   .menu{padding:80px 0}
   .cards{grid-template-columns:1fr}
-  .card h3{font-size:32px}
+  .card h3{font-size:30px}
 }
 
-/* ============ HOW IT WORKS ============ */
+/* ============ MENU PILLARS (replaces "how it works") ============ */
 .how{padding:140px 0 130px;position:relative;overflow:hidden}
-.how .head{max-width:880px;margin-bottom:80px}
+.how .head{max-width:920px;margin-bottom:80px}
 .how .label{color:var(--taro)}
 .how h2{
   font-family:"Fraunces",serif;font-weight:340;
@@ -281,6 +293,7 @@ nav.top .cta:hover{background:var(--taro);transform:translateY(-1px)}
   margin-top:16px;
 }
 .how h2 i{color:var(--taro);font-weight:300}
+.how .lede{margin-top:24px;font-size:18px;line-height:1.55;color:var(--ink-soft);max-width:620px}
 .how .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
 .step{
   background:var(--milk);
@@ -297,7 +310,7 @@ nav.top .cta:hover{background:var(--taro);transform:translateY(-1px)}
 .step:hover{background:var(--taro-pale);transform:rotate(0) translateY(-6px)}
 .step .n{
   font-family:"Fraunces",serif;font-style:italic;font-weight:380;
-  font-size:64px;color:var(--taro);line-height:.9;
+  font-size:48px;color:var(--taro);line-height:.9;
 }
 .step .ico{
   width:64px;height:64px;margin-top:14px;
@@ -341,6 +354,12 @@ nav.top .cta:hover{background:var(--taro);transform:translateY(-1px)}
 .info .row .v a{display:inline-flex;align-items:center;gap:8px;border-bottom:1px solid transparent;transition:border .25s}
 .info .row .v a:hover{border-color:var(--taro-pale)}
 .info .row .sub{display:block;margin-top:6px;font-family:"Manrope",sans-serif;font-size:13px;color:rgba(255,255,255,.6)}
+.closure-note{
+  margin-top:24px;padding:14px 18px;
+  border:1px dashed rgba(233,222,245,.4);border-radius:12px;
+  font-family:"Manrope",sans-serif;font-size:13px;line-height:1.5;color:var(--taro-pale);
+}
+.closure-note b{font-family:"Fraunces",serif;font-style:italic;font-weight:500;font-size:15px;color:var(--cream);display:block;margin-bottom:2px}
 @media(max-width:900px){
   .visit{padding:80px 0}
   .visit .grid{grid-template-columns:1fr;gap:30px}
@@ -359,8 +378,8 @@ footer .mark span{font-family:"Fraunces",serif;font-size:16px}
 footer .ig{font-size:13px;font-weight:500}
 footer .ig:hover{color:var(--taro)}
 footer .copy{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+footer .disclaimer{margin-top:24px;padding-top:20px;border-top:1px solid var(--rule);font-size:11px;color:var(--ink-soft);line-height:1.5;max-width:720px}
 
-/* reveal on scroll */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease, transform .8s ease}
 .reveal.in{opacity:1;transform:none}
 </style>
@@ -371,12 +390,12 @@ footer .copy{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:v
 <nav class="top">
   <a class="mark" href="#top">
     <div class="badge">3</div>
-    <div class="name">Class 302</div>
+    <div class="name">Class 302<small>Cerritos</small></div>
   </a>
   <div class="links">
     <a href="#concept">Concept</a>
     <a href="#menu">Menu</a>
-    <a href="#how">How it works</a>
+    <a href="#pillars">The kitchen</a>
     <a href="#visit">Visit</a>
   </div>
   <a class="cta" href="#visit">Find us →</a>
@@ -387,87 +406,103 @@ footer .copy{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:v
   <div class="wrap">
     <div class="grid">
       <div>
-        <div class="eyebrow"><span class="dot"></span><span class="tiny">Self-serve boba bar · Irvine, CA</span></div>
+        <div class="eyebrow"><span class="dot"></span><span class="tiny">Taiwanese kitchen &amp; tea house · Cerritos, CA</span></div>
         <h1 class="reveal">
-          Boba,<br>
-          <span class="it">but make it</span><br>
-          <span class="stamp">yours.</span>
+          The night<br>
+          <span class="it">market,</span><br>
+          <span class="stamp">on South St.</span>
         </h1>
-        <p class="tag reveal">A self-serve tea bar where <b>you</b> are the bartender. Stack the toppings, pour the tea, and we'll seal it like it's homework due tomorrow.</p>
+        <p class="tag reveal">Stinky tofu, oyster omelets, hand-pulled noodles, sizzling tappan, hot pot for the table, and the milk tea you grew up on. <b>It's Taipei after dark</b> — minus the flight.</p>
         <div class="ctas reveal">
           <a class="btn primary" href="#menu">See the menu <span class="arrow">→</span></a>
           <a class="btn ghost" href="#visit">Get directions <span class="arrow">→</span></a>
         </div>
         <div class="meta">
-          <div><div class="n">20</div><div class="l label">toppings</div></div>
-          <div><div class="n">6</div><div class="l label">shaved snows</div></div>
-          <div><div class="n">∞</div><div class="l label">combinations</div></div>
+          <div><div class="n">100+</div><div class="l label">menu items</div></div>
+          <div><div class="n">7</div><div class="l label">hot pots</div></div>
+          <div><div class="n">25+</div><div class="l label">drinks</div></div>
+          <div><div class="n">∞</div><div class="l label">cravings</div></div>
         </div>
       </div>
 
       <div class="vis" aria-hidden="true">
-        <!-- stickers -->
-        <div class="sticker s1">freshly sealed ✦</div>
-        <div class="sticker s2">made by you</div>
-        <div class="sticker s3">real tapioca</div>
-        <div class="sticker s4">since '04</div>
+        <!-- steam -->
+        <div class="steam s1">~</div>
+        <div class="steam s2">~</div>
+        <div class="steam s3">~</div>
 
-        <!-- the cup -->
-        <svg class="cup" viewBox="0 0 320 440" xmlns="http://www.w3.org/2000/svg">
+        <!-- stickers -->
+        <div class="sticker s1">stinky tofu approved ✦</div>
+        <div class="sticker s2">since '04</div>
+        <div class="sticker s3">hand-pulled noodles</div>
+        <div class="sticker s4">open 'til 10</div>
+
+        <!-- the bowl: noodle soup illustration -->
+        <svg class="bowl" viewBox="0 0 380 380" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <clipPath id="cupClip">
-              <path d="M58 90 L262 90 L242 420 Q160 440 78 420 Z"/>
+            <clipPath id="bowlClip">
+              <ellipse cx="190" cy="200" rx="150" ry="40"/>
+              <path d="M40 200 Q40 320 190 340 Q340 320 340 200 Z"/>
             </clipPath>
-            <linearGradient id="tea" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0" stop-color="#C9A77A"/>
-              <stop offset="1" stop-color="#8E5E33"/>
-            </linearGradient>
-            <linearGradient id="taroG" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0" stop-color="#B594D4"/>
-              <stop offset="1" stop-color="#7C5BAA"/>
+            <linearGradient id="broth" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="#C9905A"/>
+              <stop offset="1" stop-color="#7B4A1F"/>
             </linearGradient>
           </defs>
 
-          <!-- cup outline back fill (cream so toppings show) -->
-          <path d="M58 90 L262 90 L242 420 Q160 440 78 420 Z" fill="#FFFBF4"/>
+          <!-- bowl body -->
+          <path d="M40 200 Q40 320 190 340 Q340 320 340 200 Z" fill="#FFFBF4" stroke="#1B1410" stroke-width="3"/>
 
-          <!-- tea fill -->
-          <g clip-path="url(#cupClip)">
-            <rect x="58" y="170" width="204" height="270" fill="url(#tea)"/>
-            <!-- foam line -->
-            <ellipse cx="160" cy="175" rx="105" ry="10" fill="#F1EADE" opacity=".95"/>
+          <!-- broth surface fill -->
+          <ellipse cx="190" cy="200" rx="150" ry="40" fill="url(#broth)"/>
 
-            <!-- tapioca pearls clustered at the bottom -->
-            <g fill="#1B1410">
-              <circle cx="100" cy="395" r="9"/><circle cx="118" cy="402" r="10"/>
-              <circle cx="138" cy="395" r="9"/><circle cx="158" cy="404" r="11"/>
-              <circle cx="178" cy="396" r="10"/><circle cx="198" cy="402" r="9"/>
-              <circle cx="218" cy="395" r="10"/>
-              <circle cx="110" cy="380" r="8"/><circle cx="130" cy="378" r="9"/>
-              <circle cx="150" cy="382" r="10"/><circle cx="172" cy="378" r="9"/>
-              <circle cx="192" cy="382" r="10"/><circle cx="210" cy="380" r="8"/>
-              <circle cx="120" cy="365" r="8"/><circle cx="142" cy="362" r="9"/>
-              <circle cx="165" cy="366" r="9"/><circle cx="186" cy="362" r="8"/>
-            </g>
-            <!-- popping boba (purple) scattered -->
-            <g fill="url(#taroG)" opacity=".92">
-              <circle cx="95" cy="280" r="6"/><circle cx="135" cy="260" r="7"/>
-              <circle cx="180" cy="290" r="6"/><circle cx="220" cy="270" r="7"/>
-              <circle cx="115" cy="320" r="6"/><circle cx="200" cy="330" r="7"/>
-              <circle cx="155" cy="310" r="6"/>
-            </g>
+          <!-- noodles drawn as squiggles inside the broth ellipse -->
+          <g stroke="#F1EADE" stroke-width="3.2" fill="none" stroke-linecap="round" opacity=".95">
+            <path d="M70 195 Q110 180 150 200 Q190 215 230 195 Q270 178 310 200"/>
+            <path d="M75 205 Q115 220 155 200 Q195 185 235 205 Q275 220 305 205"/>
+            <path d="M80 215 Q120 200 160 215 Q200 228 240 213 Q280 200 305 215"/>
           </g>
 
-          <!-- sealed lid -->
-          <rect x="54" y="78" width="212" height="22" rx="3" fill="#7C5BAA"/>
-          <rect x="54" y="78" width="212" height="22" rx="3" fill="none" stroke="#1B1410" stroke-width="2"/>
-          <text x="160" y="94" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="13" fill="#FFFBF4">CLASS 302 · sealed fresh</text>
+          <!-- two slices of beef -->
+          <ellipse cx="135" cy="195" rx="22" ry="11" fill="#7C2D1A" stroke="#1B1410" stroke-width="1.5"/>
+          <ellipse cx="135" cy="195" rx="14" ry="6" fill="#A04428"/>
+          <ellipse cx="240" cy="200" rx="22" ry="11" fill="#7C2D1A" stroke="#1B1410" stroke-width="1.5"/>
+          <ellipse cx="240" cy="200" rx="14" ry="6" fill="#A04428"/>
 
-          <!-- cup outline -->
-          <path d="M58 90 L262 90 L242 420 Q160 440 78 420 Z" fill="none" stroke="#1B1410" stroke-width="2.5"/>
+          <!-- bok choy -->
+          <g fill="#5a8f3a" stroke="#1B1410" stroke-width="1.2">
+            <ellipse cx="190" cy="188" rx="14" ry="9"/>
+            <path d="M178 188 Q190 170 202 188" fill="#7eb353"/>
+          </g>
 
-          <!-- straw -->
-          <rect x="178" y="40" width="14" height="100" rx="3" fill="#E9DEF5" stroke="#1B1410" stroke-width="2" transform="rotate(8 185 90)"/>
+          <!-- scallions: little green rings -->
+          <g fill="#7eb353" stroke="#1B1410" stroke-width="1">
+            <circle cx="100" cy="200" r="3"/>
+            <circle cx="170" cy="208" r="3"/>
+            <circle cx="215" cy="190" r="3"/>
+            <circle cx="280" cy="205" r="3"/>
+            <circle cx="120" cy="210" r="3"/>
+            <circle cx="265" cy="195" r="3"/>
+          </g>
+
+          <!-- chili flecks -->
+          <g fill="#C13A1A">
+            <circle cx="155" cy="200" r="2"/>
+            <circle cx="195" cy="205" r="2"/>
+            <circle cx="225" cy="195" r="2"/>
+            <circle cx="255" cy="205" r="2"/>
+          </g>
+
+          <!-- chopsticks emerging -->
+          <g stroke="#1B1410" stroke-width="2.5" stroke-linecap="round">
+            <line x1="245" y1="100" x2="295" y2="195" stroke="#7C5BAA" stroke-width="6"/>
+            <line x1="260" y1="98" x2="310" y2="193" stroke="#7C5BAA" stroke-width="6"/>
+          </g>
+
+          <!-- bowl rim highlight -->
+          <ellipse cx="190" cy="200" rx="150" ry="40" fill="none" stroke="#1B1410" stroke-width="3"/>
+          <!-- bowl base shadow -->
+          <ellipse cx="190" cy="345" rx="80" ry="6" fill="rgba(0,0,0,.1)"/>
         </svg>
       </div>
     </div>
@@ -477,8 +512,8 @@ footer .copy{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:v
 <!-- MARQUEE -->
 <div class="marquee" aria-hidden="true">
   <div class="track">
-    <span>Build your own boba<i class="star"></i>twenty toppings deep<i class="star"></i>egg pudding supremacy<i class="star"></i>shaved snow szn<i class="star"></i>sealed not stirred<i class="star"></i>no free refill ✦ sorry<i class="star"></i>open 'til 12:00<i class="star"></i></span>
-    <span>Build your own boba<i class="star"></i>twenty toppings deep<i class="star"></i>egg pudding supremacy<i class="star"></i>shaved snow szn<i class="star"></i>sealed not stirred<i class="star"></i>no free refill ✦ sorry<i class="star"></i>open 'til 12:00<i class="star"></i></span>
+    <span>100+ items strong<i class="star"></i>stinky tofu szn<i class="star"></i>hand-pulled noodles<i class="star"></i>oyster omelet supremacy<i class="star"></i>hot pot for the table<i class="star"></i>open 'til 10 every night<i class="star"></i></span>
+    <span>100+ items strong<i class="star"></i>stinky tofu szn<i class="star"></i>hand-pulled noodles<i class="star"></i>oyster omelet supremacy<i class="star"></i>hot pot for the table<i class="star"></i>open 'til 10 every night<i class="star"></i></span>
   </div>
 </div>
 
@@ -488,12 +523,12 @@ footer .copy{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:v
     <div class="grid">
       <div>
         <div class="label">01 / The concept</div>
-        <h2>A tea bar<br><i>you run</i>.</h2>
+        <h2>Not a boba shop.<br><i>A whole kitchen</i>.</h2>
       </div>
       <div class="body">
-        <p>We handed the bar over. Walk up, grab a cup, load it like a sundae from twenty toppings, then fill it from every tea on tap. Zero judgment about that double pudding move — we seal it, you take the credit.</p>
-        <p>It's bubble tea as <b>choose-your-own-adventure</b>, plus a kitchen out back making the kind of Taiwanese comfort food — and a shaved snow counter — that turns a study session into a dinner.</p>
-        <div class="pull">"It's the only place where ordering takes five minutes and I still want it to take longer."</div>
+        <p>People think we're a tea spot with snacks. We're a Taiwanese kitchen — bentos, noodle soups, sizzling tappan plates, table-sized hot pots, night market classics — that <b>also happens to make really good boba</b>.</p>
+        <p>The menu's deep on purpose. Bring your parents, bring a date, bring six friends and a hot pot. We've fed all of them.</p>
+        <div class="pull">"It's the only place in Cerritos where I can order stinky tofu and a strawberry frosty in the same breath."</div>
       </div>
     </div>
   </div>
@@ -505,166 +540,260 @@ footer .copy{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:v
     <div class="head">
       <div>
         <div class="label" style="color:var(--taro)">02 / The menu</div>
-        <h2>Greatest hits,<br><i>house favorites</i>.</h2>
+        <h2>The hits, the cult picks,<br><i>the things we're known for</i>.</h2>
       </div>
-      <div class="side">A short list of the things our regulars order without looking up. Full menu in store — and yes, you can still freestyle.</div>
+      <div class="side">A short list of regular orders. Full menu — well over a hundred items — is in store. Yes, we have stinky tofu. Yes, it's good. Yes, you can sit by the window.</div>
     </div>
 
-    <div class="section-tabs"><span>Self-serve drinks</span><span class="muted">build it · seal it · go</span></div>
+    <!-- NIGHT MARKET / APPETIZERS -->
+    <div class="section-tabs"><span>Night market</span><span class="muted">starters &amp; small plates</span></div>
     <div class="cards">
       <div class="card">
-        <span class="num">№ 01</span><span class="kind">signature</span>
-        <h3>302 Milk Tea<i>the house pour</i></h3>
-        <p>The one with our name on it. Black tea steeped strong, creamy, dialled to that classic 302 balance. Load it with boba and you've ordered like a regular.</p>
-        <div class="foot"><span>most ordered</span><span class="star">★ house pick</span></div>
+        <span class="num">№ 01</span><span class="kind">house signature</span>
+        <h3>Taiwanese Popcorn Chicken<i>five-spice, fried basil</i></h3>
+        <p>Marinated, dredged, fried to order, tossed in five-spice salt with crisped basil leaves. The plate everyone splits and then orders again. Get it spicy if you know.</p>
+        <div class="foot"><span>most ordered</span><span class="star">★ iconic</span></div>
       </div>
       <div class="card">
-        <span class="num">№ 02</span><span class="kind">cult favorite</span>
-        <h3>Taro Milk Tea<i>purple &amp; delicious</i></h3>
-        <p>Real taro, full cream, sweet and faintly nutty. Looks unreal in the cup. Photographs like a dream. Tastes better than it photographs.</p>
-        <div class="foot"><span>caffeine: low</span><span class="star">✦ ig-famous</span></div>
+        <span class="num">№ 02</span><span class="kind">if you know, you know</span>
+        <h3>Fried Stinky Tofu<i>crispy outside, custardy in</i></h3>
+        <p>Real-deal fermented tofu, fried golden, served with pickled cabbage and chili sauce. Smells like a Taipei alley. Tastes like nothing else in Cerritos.</p>
+        <div class="foot"><span>night market staple</span><span class="star">✦ try us</span></div>
       </div>
       <div class="card">
-        <span class="num">№ 03</span><span class="kind">floral</span>
-        <h3>Honey Jasmine Milk Tea<i>soft, gold, gentle</i></h3>
-        <p>Jasmine green, a long pour of honey, milk on top. Tastes like the first warm afternoon of spring quarter — fight us on it.</p>
-        <div class="foot"><span>caffeine: medium</span><span class="star">✦ classic</span></div>
+        <span class="num">№ 03</span><span class="kind">night market</span>
+        <h3>Taiwanese Oyster Omelet<i>chewy, savory, eggy</i></h3>
+        <p>Plump oysters, egg, sweet potato starch, bok choy, finished with that signature sweet-savory red sauce. The Shilin night market, on a plate.</p>
+        <div class="foot"><span>appetizer</span><span class="star">★ regulars only</span></div>
       </div>
       <div class="card">
-        <span class="num">№ 04</span><span class="kind">light &amp; cool</span>
-        <h3>Winter Melon<i>cold-day, hot-day</i></h3>
-        <p>House winter melon syrup over ice. Light, faintly caramel, weirdly addictive. The "I don't like sweet drinks" person's gateway drug.</p>
-        <div class="foot"><span>caffeine: none</span><span class="star">✦ all ages</span></div>
+        <span class="num">№ 04</span><span class="kind">crispy &amp; gold</span>
+        <h3>Sweet Potato Fries<i>plum-spiced</i></h3>
+        <p>Hand-cut, fried crisp, dusted in tangy plum salt. Sweet, sour, savory all at once. Don't sleep on these — regulars order doubles.</p>
+        <div class="foot"><span>appetizer</span><span class="star">✦ underrated</span></div>
       </div>
       <div class="card">
-        <span class="num">№ 05</span><span class="kind">slush</span>
-        <h3>Mango Cream Slush<i>fruity, frozen, loud</i></h3>
-        <p>Real mango, blended frozen, finished with a cream cap. Sunny on a Tuesday, life-saving in August. Honeydew slush is right next to it.</p>
-        <div class="foot"><span>frozen</span><span class="star">✦ summer staple</span></div>
+        <span class="num">№ 05</span><span class="kind">spicy</span>
+        <h3>Sichuan Spicy Wontons<i>chili oil pool</i></h3>
+        <p>Plump pork wontons swimming in chili oil with garlic, scallion, and a slick of black vinegar. Numbing, fragrant, dangerous. Pace yourself.</p>
+        <div class="foot"><span>appetizer · 🌶</span><span class="star">✦ spice fiends</span></div>
       </div>
-      <div class="card" style="background:var(--taro);color:var(--milk)">
-        <span class="num" style="color:var(--milk)">№ 06</span><span class="kind" style="color:rgba(255,255,255,.7)">freestyle</span>
-        <h3 style="color:var(--milk)">Your Cup<i style="color:var(--taro-pale)">we don't know it yet</i></h3>
-        <p style="color:rgba(255,255,255,.85)">Whatever you build at the bar — twenty toppings to choose from, every tea on tap. Triple egg pudding? Aloe + passion fruit + lychee? Your move.</p>
-        <div class="foot" style="color:rgba(255,255,255,.6);border-top-color:rgba(255,255,255,.18)"><span>self-serve · split cups available</span><span class="star" style="color:var(--taro-pale)">★ the whole point</span></div>
+      <div class="card">
+        <span class="num">№ 06</span><span class="kind">classic</span>
+        <h3>Crispy Calamari<i>golden &amp; salt-pepper</i></h3>
+        <p>Squid rings fried to order, tossed in salt and white pepper, served with fried basil. The bar-snack version of comfort food.</p>
+        <div class="foot"><span>appetizer</span><span class="star">✦ shareable</span></div>
       </div>
     </div>
 
-    <div class="section-tabs" style="margin-top:80px"><span>From the kitchen</span><span class="muted">noodles · rice · appetizers</span></div>
+    <!-- BIG PLATES: bentos, noodles, sizzling, hot pot -->
+    <div class="section-tabs" style="margin-top:80px"><span>Big plates</span><span class="muted">bentos · noodles · sizzling · hot pot</span></div>
     <div class="cards">
       <div class="card">
-        <span class="num">№ 07</span><span class="kind">signature</span>
-        <h3>302 Fried Rice<i>wok-charred, gold-edged</i></h3>
-        <p>Egg, scallion, that smoky wok hei from a properly screaming pan. Comes out gold-edged. Disappears faster than the boba. House classic.</p>
-        <div class="foot"><span>rice</span><span class="star">★ best seller</span></div>
+        <span class="num">№ 07</span><span class="kind">bento · classic</span>
+        <h3>Crispy Pork Chop Bento<i>over rice, with pickles</i></h3>
+        <p>Marinated pork chop, pounded thin, fried until shattering-crisp. Served with rice, braised egg, Taiwanese pickles, and a vegetable. Lunch settled.</p>
+        <div class="foot"><span>bento</span><span class="star">★ best seller</span></div>
       </div>
       <div class="card">
-        <span class="num">№ 08</span><span class="kind">signature</span>
-        <h3>Popcorn Chicken<i>five-spice, basil</i></h3>
-        <p>Fried to order, tossed in five-spice salt, fried basil leaves on top. The number one reason an iced milk tea turns into dinner. Pick your spice.</p>
-        <div class="foot"><span>appetizer</span><span class="star">★ iconic</span></div>
+        <span class="num">№ 08</span><span class="kind">noodles · hot</span>
+        <h3>Spicy Beef Noodle Soup<i>slow, deep, dark</i></h3>
+        <p>Hours-long broth, hand-pulled noodles, chunks of braised beef, tendon if you ask. The bowl that turns a Tuesday into something worth remembering.</p>
+        <div class="foot"><span>noodle · 🌶</span><span class="star">★ winter MVP</span></div>
       </div>
       <div class="card">
-        <span class="num">№ 09</span><span class="kind">noodles · hot</span>
-        <h3>Beef Noodle Soup<i>slow, deep, dark</i></h3>
-        <p>Hours-long broth, hand-pulled noodles, tendon if you know. The bowl that makes the strip mall feel like a back-alley shop in Taipei.</p>
-        <div class="foot"><span>kitchen · winter MVP</span><span class="star">★ regulars only</span></div>
+        <span class="num">№ 09</span><span class="kind">sizzling tappan</span>
+        <h3>Peppercorn Beef<i>cast iron, hot</i></h3>
+        <p>Beef stir-fried with black pepper sauce, served on a screaming-hot cast iron plate that hits the table still sputtering. Loud, fragrant, fully theatrical.</p>
+        <div class="foot"><span>sizzling</span><span class="star">✦ table show</span></div>
       </div>
       <div class="card">
-        <span class="num">№ 10</span><span class="kind">noodles · spicy</span>
-        <h3>Spicy Wonton Noodles<i>sichuan-style heat</i></h3>
-        <p>Plump pork wontons, chewy noodles, chili oil that tints everything red. Numbing in all the right places. Order milk tea on standby.</p>
-        <div class="foot"><span>kitchen · 🌶</span><span class="star">✦ underrated</span></div>
+        <span class="num">№ 10</span><span class="kind">noodles · seafood</span>
+        <h3>Spicy Seafood Noodle Soup<i>shrimp, squid, fish ball</i></h3>
+        <p>A loaded bowl: shrimp, squid, fish balls, vegetables, in a chili-laced broth that punches above its weight. Bring napkins.</p>
+        <div class="foot"><span>noodle</span><span class="star">✦ loaded</span></div>
       </div>
       <div class="card">
         <span class="num">№ 11</span><span class="kind">rice plate</span>
-        <h3>Crispy Pork Chop<i>over rice, with pickles</i></h3>
-        <p>Marinated, pounded thin, fried until shattering-crisp. Served over rice with braised egg and Taiwanese-style pickles. Lunch settled.</p>
-        <div class="foot"><span>kitchen</span><span class="star">✦ comfort</span></div>
+        <h3>Spicy Bacon Fried Rice<i>wok-charred, smoky</i></h3>
+        <p>Crispy bacon, egg, scallion, that smoky wok hei from a properly screaming pan. Comes out gold-edged and faintly spicy. Disappears.</p>
+        <div class="foot"><span>fried rice</span><span class="star">★ comfort</span></div>
       </div>
       <div class="card">
-        <span class="num">№ 12</span><span class="kind">night-market</span>
-        <h3>Oyster Pancake<i>chewy, savory, eggy</i></h3>
-        <p>Plump oysters, egg, sweet potato starch, finished with a sweet-savory sauce. Straight off a Taipei night market street. Try it once, get it forever.</p>
-        <div class="foot"><span>appetizer</span><span class="star">✦ if you know</span></div>
+        <span class="num">№ 12</span><span class="kind">hot pot · spicy</span>
+        <h3>Spicy Pork Bone Hot Pot<i>built for the table</i></h3>
+        <p>A bubbling pot of pork bone broth, chili, vegetables, tofu, noodles. Add the fixings, share the steam. The house move on a cold night.</p>
+        <div class="foot"><span>hot pot · serves 1–2</span><span class="star">★ group order</span></div>
       </div>
     </div>
 
+    <!-- DRINKS -->
+    <div class="section-tabs" style="margin-top:80px"><span>Tea house</span><span class="muted">milk teas · frosties · slushies</span></div>
+    <div class="cards">
+      <div class="card">
+        <span class="num">№ 13</span><span class="kind">house signature</span>
+        <h3>302 Milk Tea<i>the house pour</i></h3>
+        <p>The one with our name on it. Black tea steeped strong, creamy, dialled to that classic 302 balance. Add boba and you've ordered like a regular.</p>
+        <div class="foot"><span>milk tea</span><span class="star">★ house pick</span></div>
+      </div>
+      <div class="card">
+        <span class="num">№ 14</span><span class="kind">cult favorite</span>
+        <h3>Taro Milk Tea<i>purple &amp; delicious</i></h3>
+        <p>Real taro, full cream, sweet and faintly nutty. Looks unreal in the cup. Photographs like a dream. Tastes better than it photographs.</p>
+        <div class="foot"><span>milk tea</span><span class="star">✦ ig-famous</span></div>
+      </div>
+      <div class="card">
+        <span class="num">№ 15</span><span class="kind">floral</span>
+        <h3>Honey Milk Tea<i>soft, gold, gentle</i></h3>
+        <p>Black tea, full cream, a long pour of honey. Sweet without being heavy. Tastes like the first warm afternoon of the year.</p>
+        <div class="foot"><span>milk tea</span><span class="star">✦ classic</span></div>
+      </div>
+      <div class="card">
+        <span class="num">№ 16</span><span class="kind">frosty</span>
+        <h3>Fresh Taro Red Bean Frosty<i>blended, creamy, real</i></h3>
+        <p>Real taro and red bean blended into a thick, frozen frosty. Eat it with a spoon, drink it with a straw. Either way works.</p>
+        <div class="foot"><span>frosty</span><span class="star">✦ dessert energy</span></div>
+      </div>
+      <div class="card">
+        <span class="num">№ 17</span><span class="kind">slushy</span>
+        <h3>Very Mango Slushy<i>fruity, frozen, loud</i></h3>
+        <p>Real mango, blended frozen, no dairy. Sunny on a Tuesday, life-saving in August. Lychee and strawberry are right next to it.</p>
+        <div class="foot"><span>slushy · water-based</span><span class="star">✦ summer staple</span></div>
+      </div>
+      <div class="card" style="background:var(--taro);color:var(--milk)">
+        <span class="num" style="color:var(--milk)">№ 18</span><span class="kind" style="color:rgba(255,255,255,.7)">load it up</span>
+        <h3 style="color:var(--milk)">Iced Milk + Egg Pudding + Honey Boba<i style="color:var(--taro-pale)">a category, not a drink</i></h3>
+        <p style="color:rgba(255,255,255,.85)">The full upgrade: cold milk, real egg pudding, chewy honey-soaked boba. Add red bean. Add caramel. Add green tea. Build it however.</p>
+        <div class="foot" style="color:rgba(255,255,255,.6);border-top-color:rgba(255,255,255,.18)"><span>iced milk drinks</span><span class="star" style="color:var(--taro-pale)">★ stacked</span></div>
+      </div>
+    </div>
+
+    <!-- SHAVED SNOW -->
     <div class="section-tabs" style="margin-top:80px"><span>Shaved Snow</span><span class="muted">soft, sweet, share-able</span></div>
     <div class="cards">
       <div class="card">
-        <span class="num">№ 13</span><span class="kind">snow · house</span>
-        <h3>Boba Milk Tea Snow<i>milk tea, but make it snow</i></h3>
-        <p>Milk tea–flavored shaved snow, condensed milk, egg pudding, and chewy boba on top. The drink and the dessert in the same bowl. Bring a friend.</p>
+        <span class="num">№ 19</span><span class="kind">snow · house</span>
+        <h3>Pudding Milk Tea Snow<i>milk tea, but make it snow</i></h3>
+        <p>Milk tea–flavored shaved snow, condensed milk, real egg pudding, and chewy boba on top. The drink and the dessert in one bowl. Bring a friend.</p>
         <div class="foot"><span>shaved snow</span><span class="star">★ instant classic</span></div>
       </div>
       <div class="card">
-        <span class="num">№ 14</span><span class="kind">snow · purple</span>
-        <h3>Taro Red Bean<i>creamy, earthy, lavender</i></h3>
-        <p>Milk snow, condensed milk, taro, red bean, mochi. Looks like a Pinterest mood board. Tastes like a hug from your aunt in Taipei.</p>
+        <span class="num">№ 20</span><span class="kind">snow · purple</span>
+        <h3>Taro Red Bean Snow<i>creamy, earthy, lavender</i></h3>
+        <p>Milk snow, condensed milk, real taro, sweet red bean, mochi. Looks like a Pinterest mood board. Tastes like a hug from your aunt in Taipei.</p>
         <div class="foot"><span>shaved snow</span><span class="star">✦ aesthetic pick</span></div>
       </div>
       <div class="card">
-        <span class="num">№ 15</span><span class="kind">snow · fruit</span>
-        <h3>Mango Mochi<i>tropical, soft, golden</i></h3>
-        <p>Mango snow, condensed milk, mochi, milk pudding, real mango. The summer one. Eats like a cloud, photographs like a postcard.</p>
+        <span class="num">№ 21</span><span class="kind">snow · fruit</span>
+        <h3>Golden Mango Mochi Snow<i>tropical, soft, sun-yellow</i></h3>
+        <p>Mango snow, condensed milk, mochi, milk pudding, real mango cubes. The summer order. Eats like a cloud, photographs like a postcard.</p>
         <div class="foot"><span>shaved snow</span><span class="star">✦ summer order</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="how" id="how">
+<!-- THE KITCHEN PILLARS -->
+<section class="how" id="pillars">
   <div class="wrap">
     <div class="head">
-      <div class="label">03 / How it works</div>
-      <h2>Three steps,<br><i>one golden rule</i>.</h2>
+      <div class="label">03 / The kitchen</div>
+      <h2>Eight ways<br><i>to order us</i>.</h2>
+      <p class="lede">The menu's long because Taiwanese food is wide. Here's the cheat sheet — pick a corner, dive in.</p>
     </div>
     <div class="steps">
       <div class="step">
         <div class="n">01</div>
         <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="#1B1410" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M16 16 L48 16 L44 54 Q32 58 20 54 Z"/>
-          <path d="M14 16 L50 16"/>
-          <path d="M22 24 L42 24" stroke="#7C5BAA"/>
+          <circle cx="32" cy="36" r="14" fill="#FFFBF4"/>
+          <path d="M22 30 Q26 24 32 25 Q38 24 42 30"/>
+          <circle cx="28" cy="36" r="2" fill="#7C5BAA"/>
+          <circle cx="36" cy="36" r="2" fill="#7C5BAA"/>
         </svg>
-        <h3>Purchase a cup</h3>
-        <p>Pay first at the register. Small or regular — that empty cup is your ticket to the bar.</p>
+        <h3>Night market plates</h3>
+        <p>Popcorn chicken, stinky tofu, oyster omelet, calamari. Order three, share everything.</p>
       </div>
       <div class="step">
         <div class="n">02</div>
         <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="#1B1410" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="20" cy="40" r="5" fill="#1B1410"/>
-          <circle cx="32" cy="44" r="5" fill="#7C5BAA"/>
-          <circle cx="44" cy="40" r="5" fill="#1B1410"/>
-          <circle cx="26" cy="32" r="5" fill="#7C5BAA"/>
-          <circle cx="38" cy="32" r="5" fill="#1B1410"/>
-          <path d="M12 50 L52 50"/>
+          <rect x="14" y="18" width="36" height="32" rx="3" fill="#FFFBF4"/>
+          <line x1="14" y1="28" x2="50" y2="28"/>
+          <line x1="22" y1="18" x2="22" y2="50" stroke="#7C5BAA"/>
+          <line x1="32" y1="28" x2="32" y2="50"/>
+          <line x1="42" y1="28" x2="42" y2="50"/>
         </svg>
-        <h3>Load &amp; fill</h3>
-        <p>Mochi, taro, boba, aloe, egg pudding, lychee jelly — twenty toppings in. Then your drink of choice. We're not the topping police.</p>
+        <h3>Bento boxes</h3>
+        <p>Pork chop, popcorn chicken, salmon. Comes with rice, egg, pickles, vegetables. Lunch sorted.</p>
       </div>
       <div class="step">
         <div class="n">03</div>
         <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="#1B1410" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M18 22 L46 22 L42 54 Q32 58 22 54 Z" fill="#FFFBF4"/>
-          <rect x="16" y="14" width="32" height="10" rx="2" fill="#7C5BAA"/>
-          <path d="M30 8 L34 4" stroke="#7C5BAA"/>
-          <path d="M40 10 L44 6" stroke="#7C5BAA"/>
-          <path d="M22 8 L26 4" stroke="#7C5BAA"/>
+          <ellipse cx="32" cy="38" rx="20" ry="6" fill="#7C5BAA"/>
+          <path d="M12 38 Q12 50 32 52 Q52 50 52 38"/>
+          <path d="M22 28 Q26 22 32 26" stroke="#7C5BAA"/>
+          <path d="M32 24 Q36 18 42 22" stroke="#7C5BAA"/>
         </svg>
-        <h3>Get it sealed</h3>
-        <p>Bring it back to the cashier. We seal it tight, you walk out looking like a pro. Class dismissed.</p>
+        <h3>Noodle soups</h3>
+        <p>Hand-pulled noodles, hours-long broths. Beef, wonton, seafood, pork bone. Cold-day fuel.</p>
       </div>
-      <div class="step" style="background:var(--ink);color:var(--cream);border-color:var(--ink)">
-        <div class="n" style="color:var(--taro-pale)">!</div>
-        <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="#FAF6F0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="32" cy="32" r="22"/>
-          <path d="M20 20 L44 44" stroke="#E9DEF5"/>
+      <div class="step">
+        <div class="n">04</div>
+        <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="#1B1410" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="10" y="32" width="44" height="14" rx="2" fill="#1B1410"/>
+          <ellipse cx="32" cy="32" rx="20" ry="6" fill="#7C5BAA"/>
+          <path d="M22 22 Q24 18 26 22" stroke="#7C5BAA"/>
+          <path d="M32 18 Q34 14 36 18" stroke="#7C5BAA"/>
+          <path d="M42 22 Q44 18 46 22" stroke="#7C5BAA"/>
         </svg>
-        <h3 style="color:var(--cream)">No free refills</h3>
-        <p style="color:rgba(255,255,255,.7)">House rule, hand-painted on the sign. Tray goes back to the trash station. We love you anyway.</p>
+        <h3>Sizzling tappan</h3>
+        <p>Cast-iron plates that hit the table still sputtering. Beef, garlic chicken, peppercorn fish. A whole show.</p>
+      </div>
+      <div class="step">
+        <div class="n">05</div>
+        <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="#1B1410" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <ellipse cx="32" cy="40" rx="22" ry="6"/>
+          <path d="M10 40 Q10 54 32 56 Q54 54 54 40" fill="#FFFBF4"/>
+          <path d="M16 28 Q20 22 22 28" stroke="#7C5BAA"/>
+          <path d="M28 24 Q32 18 34 24" stroke="#7C5BAA"/>
+          <path d="M42 28 Q46 22 48 28" stroke="#7C5BAA"/>
+        </svg>
+        <h3>Hot pot for the table</h3>
+        <p>Bubbling broth, your friends, two hours of dipping. Spicy, satay, miso, tomato. Group order, every time.</p>
+      </div>
+      <div class="step">
+        <div class="n">06</div>
+        <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="#1B1410" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="20" y="14" width="24" height="40" rx="2" fill="#FFFBF4"/>
+          <ellipse cx="32" cy="20" rx="12" ry="3" fill="#C9905A"/>
+          <circle cx="26" cy="42" r="3" fill="#1B1410"/>
+          <circle cx="34" cy="46" r="3" fill="#7C5BAA"/>
+          <circle cx="38" cy="40" r="3" fill="#1B1410"/>
+        </svg>
+        <h3>Milk teas &amp; boba</h3>
+        <p>302 Milk Tea, taro, honey, jasmine, Hokkaido caramel. Add egg pudding, grass jelly, honey boba. Stack it deep.</p>
+      </div>
+      <div class="step">
+        <div class="n">07</div>
+        <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="#1B1410" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 20 L48 20 L42 50 Q32 54 22 50 Z" fill="#E9DEF5"/>
+          <line x1="22" y1="30" x2="42" y2="30" stroke="#7C5BAA"/>
+          <line x1="24" y1="38" x2="40" y2="38" stroke="#7C5BAA"/>
+          <line x1="26" y1="46" x2="38" y2="46" stroke="#7C5BAA"/>
+        </svg>
+        <h3>Frosties &amp; slushies</h3>
+        <p>Blended fruit slushies, creamy frosties, frozen lattes. The summer side of the menu. Always on.</p>
+      </div>
+      <div class="step">
+        <div class="n">08</div>
+        <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="#1B1410" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 42 Q24 22 32 22 Q40 22 50 42 Z" fill="#FFFBF4"/>
+          <ellipse cx="32" cy="44" rx="20" ry="4"/>
+          <circle cx="26" cy="34" r="2" fill="#7C5BAA"/>
+          <circle cx="34" cy="30" r="2" fill="#1B1410"/>
+          <circle cx="38" cy="36" r="2" fill="#7C5BAA"/>
+        </svg>
+        <h3>Shaved snow</h3>
+        <p>Mountain of fluffy snow, condensed milk, real fruit, mochi, pudding, boba. Dessert built for sharing — or not.</p>
       </div>
     </div>
   </div>
@@ -676,24 +805,28 @@ footer .copy{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:v
     <div class="grid">
       <div>
         <div class="label">04 / Visit</div>
-        <h2>Come<br><i>build something</i>.</h2>
+        <h2>Come<br><i>get fed</i>.</h2>
       </div>
       <div class="info">
         <div class="row">
           <div class="k">Address</div>
-          <div class="v"><a href="https://maps.google.com/?q=13252+Jamboree+Rd,+Irvine,+CA+92602" target="_blank" rel="noopener">13252 Jamboree Rd<br>Irvine, CA 92602 →</a><span class="sub">Minutes from UCI. Plenty of parking.</span></div>
+          <div class="v"><a href="https://maps.google.com/?q=11446+South+St,+Cerritos,+CA+90703" target="_blank" rel="noopener">11446 South St<br>Cerritos, CA 90703 →</a><span class="sub">Plenty of parking. Window seats fill up first.</span></div>
         </div>
         <div class="row">
           <div class="k">Hours</div>
-          <div class="v">11:00 AM — 12:00 AM<span class="sub">Open daily, every day, no exceptions.</span></div>
+          <div class="v">11:00 AM — 10:00 PM<span class="sub">Open daily. Kitchen runs 11:30 AM – 8:59 PM.</span></div>
         </div>
         <div class="row">
           <div class="k">Phone</div>
-          <div class="v"><a href="tel:+17143891177">(714) 389-1177</a><span class="sub">Call ahead for large kitchen orders.</span></div>
+          <div class="v"><a href="tel:+15629241315">(562) 924-1315</a><span class="sub">Call ahead for large orders or hot pot parties.</span></div>
         </div>
         <div class="row">
-          <div class="k">Reviews</div>
-          <div class="v"><a href="https://www.yelp.com/biz/class-302-tea-cafe-irvine-3" target="_blank" rel="noopener">Read us on Yelp →</a></div>
+          <div class="k">Email</div>
+          <div class="v"><a href="mailto:class302cerritos@gmail.com">class302cerritos@gmail.com</a></div>
+        </div>
+        <div class="closure-note">
+          <b>One thing —</b>
+          We're closed every <b style="display:inline">last Monday of the month</b>. Plan around it. Thanks for understanding.
         </div>
       </div>
     </div>
@@ -702,21 +835,22 @@ footer .copy{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:v
 
 <!-- FOOTER -->
 <footer>
-  <div class="wrap row">
-    <div class="mark"><div class="badge">3</div><span>Class 302 Tea Cafe</span></div>
-    <a class="ig" href="https://instagram.com/class302teacafe" target="_blank" rel="noopener">@class302teacafe ↗</a>
-    <div class="copy">© 2026 Class 302 · Irvine, CA</div>
+  <div class="wrap">
+    <div class="row">
+      <div class="mark"><div class="badge">3</div><span>Class 302 Cerritos</span></div>
+      <a class="ig" href="https://instagram.com/class302cerritos" target="_blank" rel="noopener">@class302cerritos ↗</a>
+      <div class="copy">© 2026 Class 302 · Cerritos, CA</div>
+    </div>
+    <p class="disclaimer">A heads up before you order: most of our dishes contain MSG, dairy, and wheat/gluten. We don't currently offer vegan or vegetarian options. Please let us know about any allergies or preferences when you order — we'll do our best to take care of you.</p>
   </div>
 </footer>
 
 <script>
-// reveal on scroll
 const io = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
 },{threshold:.15});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-// smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click', e=>{
     const id = a.getAttribute('href');
