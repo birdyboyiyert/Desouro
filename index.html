@@ -244,7 +244,60 @@
     footer nav-f { display: flex; gap: 1.5rem; }
     footer a { color: var(--accent2); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
     footer a:hover { color: #fff; }
-  </style>
+  
+  .pricing {
+    background: var(--white);
+  }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 3rem;
+  }
+  .pricing-card {
+    background: var(--light);
+    border: 1.5px solid #dceef8;
+    border-radius: 18px;
+    padding: 32px 28px;
+    box-shadow: 0 12px 35px rgba(30, 156, 255, 0.08);
+  }
+  .pricing-card.featured {
+    background: linear-gradient(135deg, var(--deep), #0d3a60);
+    color: #fff;
+    border-color: rgba(255,255,255,0.12);
+    transform: translateY(-4px);
+  }
+  .pricing-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.7rem;
+  }
+  .price {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .pricing-card.featured .price { color: #fff; }
+  .pricing-card p {
+    color: inherit;
+    opacity: 0.95;
+    line-height: 1.7;
+    margin-bottom: 0.6rem;
+  }
+  .pricing-note {
+    margin-top: 1.5rem;
+    background: #e8f5ff;
+    border-left: 4px solid var(--accent);
+    padding: 16px 18px;
+    border-radius: 12px;
+    color: var(--deep);
+    line-height: 1.7;
+  }
+
+</style>
 
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%' stop-color='%231e9cff'/><stop offset='100%' stop-color='%230a2540'/></linearGradient></defs><rect width='64' height='64' rx='16' fill='url(%23g)'/><path d='M18 40c8-16 20-16 28 0' fill='none' stroke='%23ffffff' stroke-width='4' stroke-linecap='round'/><path d='M22 24h20' stroke='%23a8d8f0' stroke-width='4' stroke-linecap='round'/><circle cx='45' cy='19' r='4' fill='%2322c55e'/></svg>" />
   <meta name="theme-color" content="#0a2540" />
@@ -435,6 +488,28 @@
 </div>
 
 <!-- CONTACT FORM -->
+
+<section class="pricing" id="pricing">
+  <div class="section-tag">Pricing</div>
+  <div class="section-title">Simple, Fair Window Cleaning Rates</div>
+  <p class="section-sub">Clear pricing based on the number of windows and whether the home is single-story or two-story.</p>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <h3>1-Story Homes</h3>
+      <div class="price">$75</div>
+      <p>Includes homes with up to 10 windows.</p>
+      <p><strong>Each additional window:</strong> +$5</p>
+    </div>
+    <div class="pricing-card featured">
+      <h3>2-Story Homes</h3>
+      <div class="price">$150</div>
+      <p>Includes homes with up to 10 windows.</p>
+      <p><strong>Each additional window:</strong> +$5</p>
+    </div>
+  </div>
+  <div class="pricing-note"><strong>Example:</strong> A 1-story home with 13 windows would be $90. A 2-story home with 13 windows would be $165.</div>
+</section>
+
 <section class="contact" id="contact">
   <div class="section-tag">Contact Us</div>
   <div class="section-title">Get Your Free Quote</div>
